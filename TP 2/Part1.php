@@ -3,22 +3,22 @@
 
 <form method="POST">
 <label for="CIN">CIN :</label>
-<input type="text" name="CIN" id="CIN">
+<input type="text" name="CIN" id="CIN" required>
 <br><br>
 <label for="name">Name :</label>
-<input type="text" name="name" id="name">
+<input type="text" name="name" id="name" required>
 <br><br>
 <label for="lastName">Last Name :</label>
-<input type="text" name="lastName" id="lastName">
+<input type="text" name="lastName" id="lastName" required>
 <br><br>
 <label for="tel">Tel :</label>
-<input type="text" name="tel" id="tel">
+<input type="text" name="tel" id="tel" required>
 <br><br>
 <label for="email">Email :</label>
-<input type="text" name="email" id="email">
+<input type="text" name="email" id="email" required>
 <br><br>
 <label for="birth">Birthday date :</label>
-<input type="date" name="birth" id="birth">
+<input type="date" name="birth" id="birth" required>
 <br><br>
 <label for="cv">Upload your cv (taille < 2MB) :</label>
 <input type="file" name="cv" id="cv">
