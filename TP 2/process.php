@@ -16,7 +16,7 @@ if($_SERVER["REQUEST_METHOD"] != "POST")
 
     if (preg_match("/^[A-Z]{2}[0-9]{6}$/",$cin) == 0)
         exit("Invalid CIN");
-    if (preg_match("/^[A-Za-z0-9.]+@[A-Za-z]+\.[a-z]+$/",$email) == 0)
+    if (preg_match("/^[A-Za-z0-9.]+@[A-Za-z]+\.[a-z.]+$/",$email) == 0)
         exit("Invalid Email");
     if (preg_match("/^0[567]{1}[0-9]{8}$/",$tel) == 0)
         exit("Invalid Tel");
