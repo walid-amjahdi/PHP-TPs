@@ -5,7 +5,7 @@ if($_SERVER["REQUEST_METHOD"] != "POST")
     $formData = [];
 
     foreach ($_POST as $key => $value)
-        $formData[$key] = htmlspecialchars(trim($value));
+        $formData[$key] = trim($value);
 
     $cin = $formData["CIN"];
     $name = $formData["name"];
