@@ -21,7 +21,7 @@ if($_SERVER["REQUEST_METHOD"] != "POST")
     if ($_FILES["cv"]["size"] > $maxSize)
         exit("CV's size not valide (Max 2MB) !") ;
 
-    if (move_uploaded_file($_FILES["cv"]["tmp_name"],"uploads/"))
+    if (move_uploaded_file($_FILES["cv"]["tmp_name"],"uploads/cv.pdf"))
         echo "cv saved succesfuly <br>";
     else
         exit("Error while saving CV") ;
