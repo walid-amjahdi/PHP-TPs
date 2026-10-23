@@ -15,12 +15,16 @@ if($_SERVER["REQUEST_METHOD"] != "POST")
     $birth = $formData["birth"];
 
     if ($_FILES["cv"]["type"] != "pdf")
-        echo "Not a valid file type !(expected pdf)";
+        exit("Not a valid file type !(expected pdf)") ;
 
     $maxSize = 1024 * 1024 * 2 ;
     if ($_FILES["cv"]["size"] > $maxSize)
-        echo "CV's size not valide (Max 2MB) !";
-
+        exit("CV's size not valide (Max 2MB) !") ;
+    
+    if (move_uploaded_file($_FILES["cv"]["tmp_name"],"/uploads"))
+        echo "cv saved succesfuly";
+    else
+        echo "Error while saving CV";
     
     echo "User infos saved succesfuly";
 
