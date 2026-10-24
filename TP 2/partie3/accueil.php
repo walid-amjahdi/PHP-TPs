@@ -10,5 +10,5 @@ if (!isset($_SESSION['login'])) {
 <nav><a href="accueil.php">Accueil</a><a href="informations.php">Mes informations</a><a href="logout.php">Déconnexion</a></nav>
 <h1>Bienvenue <?= $_SESSION['prenom'] ?></h1>
 <p>Le prénom vient de <code>$_SESSION['prenom']</code>. La session garde les informations après la connexion.</p>
-<p><a href="informations.php">Afficher mes informations et modifier ma langue</a></p>
+<p><a href="informations.php">Afficher mes informations</a></p>
 </main></body></html>
