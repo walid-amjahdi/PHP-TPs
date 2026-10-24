@@ -1,3 +1,21 @@
+
+<style>
+        body { 
+            font-family: Arial, sans-serif; 
+            max-width: 760px; 
+            margin: 45px auto; 
+            background: #f8fafc; 
+            color: #172033; 
+        }
+        label { 
+            display: block; 
+            margin: 12px 0 4px; 
+        } 
+        .error { color: #b42318; } 
+        .success { color: #067647; } 
+        .box { padding: 13px; background: #eff6ff; }
+    </style>
+
 <?php 
 if($_SERVER["REQUEST_METHOD"] != "POST")
     exit("Post Method Required !!!");
