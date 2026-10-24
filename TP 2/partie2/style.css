@@ -1,0 +1,7 @@
+body { font-family: Arial, sans-serif; max-width: 900px; margin: 35px auto; line-height: 1.55; }
+nav { padding: 12px; background: #eef4ff; margin-bottom: 25px; }
+nav a { margin-right: 13px; }
+code, pre { background: #f5f5f5; padding: 2px 5px; }
+pre { padding: 14px; overflow: auto; }
+.resultat { border-left: 4px solid #2563eb; background: #eff6ff; padding: 12px; }
+input, button { padding: 7px; margin: 4px 0; }

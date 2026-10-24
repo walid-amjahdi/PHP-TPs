@@ -1,0 +1,5 @@
+body { font-family: Arial, sans-serif; max-width: 760px; margin: 45px auto; background: #f8fafc; color: #172033; }
+main { background: white; padding: 28px; border-radius: 10px; box-shadow: 0 3px 16px #d9e0eb; }
+nav { margin-bottom: 20px; } nav a { margin-right: 14px; }
+label { display: block; margin: 12px 0 4px; } input, select, button { padding: 8px; font-size: 1rem; }
+.error { color: #b42318; } .success { color: #067647; } .box { padding: 13px; background: #eff6ff; }
