@@ -1,28 +1,17 @@
 <?php
-$dossier = "uploads/";
-$extensionsAutorisees = [
-"jpg",
-"jpeg",
-"png",
-"gif"
-];
-if (is_dir($dossier)) {
-$fichiers = scandir($dossier);
-foreach ($fichiers as $fichier) {
-// Ignorer . et ..
-if ($fichier == "." || $fichier == "..") {
-continue;
+class ParentClass {
+public static $nom = "Parent";
+public static function testerSelf() {
+echo self::$nom;
 }
-// Récupérer l'extension
-$extension = strtolower(
-pathinfo($fichier, PATHINFO_EXTENSION)
-);
-// Vérifier que c'est une image
-if (in_array($extension, $extensionsAutorisees)) {
-echo "<img src='uploads/$fichier' ";
-echo "width='200' ";
-echo "style='margin:10px;'>";
+public static function testerStatic() {
+echo static::$nom;
 }
 }
+class EnfantClass extends ParentClass {
+public static $nom = "Enfant";
 }
+EnfantClass::testerSelf();
+echo "<br>";
+EnfantClass::testerStatic();
 ?>
