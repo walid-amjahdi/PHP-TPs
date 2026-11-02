@@ -125,3 +125,10 @@ th
 {
     background-color: #3262d1; 
 }
+.update-user
+{
+    height: 50px;
+    background-color: rgb(38, 187, 127);
+    color: #eff6ff;
+    border-radius: 10%;
+}

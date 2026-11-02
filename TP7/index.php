@@ -7,6 +7,14 @@ if (isset($_GET['success']) && $_GET['success'] == 1):
 ?>
     <h4 class="success">User added successfully!</h4>
 <?php 
+elseif (isset($_GET['updated']) && $_GET['updated'] == 1): 
+?>
+    <h4 class="success">User updated successfully!</h4>
+<?php 
+elseif (isset($_GET['deleted']) && $_GET['deleted'] == 1): 
+?>
+    <h4 class="success">User deleted successfully!</h4>
+<?php 
 endif; 
 ?>
 

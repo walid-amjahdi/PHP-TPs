@@ -85,7 +85,7 @@ if (isset($_POST['submit']) && $_SERVER["REQUEST_METHOD"] == "POST")
         <label for="birth">Birthdate :</label>
         <input type="date" name="birth" id="birth" value="<?= htmlspecialchars($user['birth']) ?>" required>
         <br><br>
-        <button class="modify" type="submit" name="submit">Update User</button>
+        <button class="update-user" type="submit" name="submit">Update User</button>
     </form>
 </body>
 </html>
