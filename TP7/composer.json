@@ -1,7 +1,6 @@
 {
     "require": {
-        "jpgraph/jpgraph": "^4.0",
-        "fakerphp/faker": "*",
-        "mitoteam/jpgraph": "*"
+        "fakerphp/faker": "^1.24",
+        "mitoteam/jpgraph": "^10.1"
     }
 }

@@ -2,6 +2,8 @@
 
 try {
     require_once __DIR__ . "/config.php";
+    require_once __DIR__ . "/vendor/autoload.php";
+    \mitoteam\jpgraph\MtJpGraph::load("line");
     $stmt = $pdo->query("SELECT cin, birth FROM users ORDER BY id");
     $rows = $stmt->fetchAll();
 } catch (Throwable $e) {
@@ -9,19 +11,6 @@ try {
     http_response_code(500);
     header("Content-Type: text/plain; charset=utf-8");
     exit("The chart data could not be loaded.");
-}
-
-$jpgraphFiles = [
-    __DIR__ . "/vendor/jpgraph/jpgraph/src/jpgraph.php",
-    __DIR__ . "/vendor/jpgraph/jpgraph/src/jpgraph_line.php",
-    __DIR__ . "/jpgraph/src/jpgraph.php",
-    __DIR__ . "/jpgraph/src/jpgraph_line.php",
-];
-
-foreach ($jpgraphFiles as $file) {
-    if (is_file($file)) {
-        require_once $file;
-    }
 }
 
 if (!class_exists("Graph") || !class_exists("LinePlot")) {
