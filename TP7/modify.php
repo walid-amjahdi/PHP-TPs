@@ -1,5 +1,10 @@
 <?php
-require_once "config.php";
+try {
+    require_once "config.php";
+} catch (Throwable $e) {
+    error_log("Modify page database error: " . $e->getMessage());
+    exit("The database is currently unavailable.");
+}
 
 if (!isset($_GET['id'])) {
     header("Location: index.php");
@@ -52,9 +57,9 @@ if (isset($_POST['submit']) && $_SERVER["REQUEST_METHOD"] == "POST")
         header("Location: index.php?updated=1");
         exit();
     
-    } catch (\PDOException $e) 
-    {
-        exit("Database Error: " . $e->getMessage());
+    } catch (Throwable $e) {
+        error_log("Unable to update user: " . $e->getMessage());
+        exit("Unable to update the user. Please try again.");
     }
 }
 ?>

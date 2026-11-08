@@ -1,5 +1,10 @@
 <?php
-require_once "config.php" ;
+try {
+    require_once "config.php";
+} catch (Throwable $e) {
+    error_log("Delete page database error: " . $e->getMessage());
+    exit("The database is currently unavailable.");
+}
 if (isset($_GET["id"]))
 {
     $id = $_GET["id"];
@@ -11,9 +16,9 @@ if (isset($_GET["id"]))
         header("Location: index.php?deleted=1");
         exit();
     } 
-    catch (\PDOException $e) 
-    {
-        exit("Database Error: " . $e->getMessage());
+    catch (Throwable $e) {
+        error_log("Unable to delete user: " . $e->getMessage());
+        exit("Unable to delete the user. Please try again.");
     }
 }   
 else 

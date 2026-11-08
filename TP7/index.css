@@ -1,12 +1,11 @@
-body 
-{ 
-    font-family: Arial, sans-serif; 
-    max-width: 760px; 
-    margin: 45px auto; 
-    background: #f8fafc; 
-    color: #172033; 
-    padding-left: 20px;
-    padding-right: 20px;
+* { box-sizing: border-box; }
+body {
+    font-family: Arial, sans-serif;
+    max-width: 980px;
+    margin: 35px auto;
+    background: #111827;
+    color: #f3f4f6;
+    padding: 0 20px;
 }
 label 
 { 
@@ -18,45 +17,40 @@ input, select, button
     padding: 8px; 
     font-size: 1rem; 
 }
-.error 
-{ 
-    color: #b42318; 
-} 
-.success 
-{ 
-    color: #067647; 
-} 
+.error { color: #fca5a5; }
+.success { color: #86efac; }
+.message { padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; background: #1f2937; }
+.muted { color: #9ca3af; }
 .box 
 { 
     padding: 13px; background: #eff6ff; 
 }
-form 
-{ 
-    background: #fff; 
+form {
+    background: #1f2937;
     padding: 20px; 
-    border: 1px solid #cbd5e1; 
+    border: 1px solid #374151;
     border-radius: 6px;
     margin-bottom: 30px; 
 }
-table 
-{ 
+table {
     width: 100%; 
     border-collapse: collapse; 
-    background: #fff; 
+    background: #1f2937;
     border-radius: 6px;
     overflow: hidden;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.35);
 }
 th, td 
 { 
     padding: 12px; 
-    border: 1px solid #e2e8f0; 
+    border: 1px solid #374151;
     text-align: left; 
 }
-th 
-{ 
-    background: #f1f5f9; 
-}
+th { background: #374151; }
+tr:nth-child(even) { background: #172033; }
+input, select { background: #111827; color: #f3f4f6; border: 1px solid #4b5563; border-radius: 4px; }
+.chart-card { margin-top: 30px; padding: 20px; background: #1f2937; border: 1px solid #374151; border-radius: 6px; }
+.chart-card img { display: block; width: 100%; max-width: 900px; height: auto; margin-top: 15px; background: #fff; }
 .action
 {
     display: flex;

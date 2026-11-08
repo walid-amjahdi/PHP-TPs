@@ -1,5 +1,11 @@
 <?php
-require_once "config.php";
+$errorMessage = null;
+try {
+    require_once "config.php";
+} catch (Throwable $e) {
+    error_log("Add page database error: " . $e->getMessage());
+    $errorMessage = "The database is currently unavailable.";
+}
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +17,9 @@ require_once "config.php";
     <link rel="stylesheet" href="index.css"/>
 </head>
 <body>
+    <?php if ($errorMessage !== null): ?>
+        <div class="message error"><?= htmlspecialchars($errorMessage, ENT_QUOTES, 'UTF-8') ?></div>
+    <?php else: ?>
     <h1>Add User Infos</h1>
     <form method="POST">
         <label for="CIN">CIN :</label>
@@ -30,6 +39,7 @@ require_once "config.php";
         <br><br>
         <button class="add-user" type="submit" name="submit">Save User</button>
     </form>
+    <?php endif; ?>
 </body>
 </html>
 
@@ -62,17 +72,16 @@ if (isset($_POST['submit']) && $_SERVER["REQUEST_METHOD"] == "POST")
         exit("Invalid Tel format (e.g., 0612345678)");
     }
     
-    try 
-    {
+    try {
         $stmt = $pdo->prepare("INSERT INTO users (cin, full_name, tel, email, birth) VALUES (?, ?, ?, ?, ?)");
         $stmt->execute([$cin, $full_name, $tel, $email, $birth]);
     
         header("Location: index.php?success=1");
         exit();
     
-    } catch (\PDOException $e) 
-    {
-        exit("Database Error: " . $e->getMessage());
+    } catch (Throwable $e) {
+        error_log("Unable to add user: " . $e->getMessage());
+        exit("Unable to save the user. Please try again.");
     }
 }
 ?>
