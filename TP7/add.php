@@ -40,21 +40,6 @@ try {
         <label for="grade">Grade :</label>
         <input type="number" name="grade" id="grade" required>
 
-        <p>Honor:</p>
-        <label>
-            <input type="radio" name="honor" value="pass"> Pass
-        </label><br>
-        <label>
-            <input type="radio" name="honor" value="honors"> Assez Bien
-        </label><br>
-        <label>
-            <input type="radio" name="honor" value="high_honors"> Bien
-        </label><br>
-        <label>
-            <input type="radio" name="honor" value="highest_honors"> Très Bien
-        </label>
-
-
         <br><br>
         <button class="add-user" type="submit" name="submit">Save User</button>
     </form>
@@ -92,9 +77,23 @@ if (isset($_POST['submit']) && $_SERVER["REQUEST_METHOD"] == "POST")
     {
         exit("Invalid Tel format (e.g., 0612345678)");
     }
-    if (preg_match("/^(?:[0-9]|1[0-9]|20)$/",$grade))
+    if (preg_match("/^(?:[0-9]|1[0-9]|20)$/", $grade) == 0) 
     {
-        exit("Invalid grade format (0-20)");
+        exit("Invalid grade format (0-20 integers only)");
+    }
+
+    $grade_int = (int)$grade;
+    $honor = '';
+    if ($grade_int >= 16) {
+        $honor = 'Très Bien';
+    } elseif ($grade_int >= 14) {
+        $honor = 'Bien';
+    } elseif ($grade_int >= 12) {
+        $honor = 'Assez Bien';
+    } elseif ($grade_int >= 10) {
+        $honor = 'Pass';
+    } else {
+        $honor = 'None';
     }
     
     try {

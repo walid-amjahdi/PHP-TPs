@@ -50,9 +50,28 @@ if (isset($_POST['submit']) && $_SERVER["REQUEST_METHOD"] == "POST")
     {
         exit("Invalid Tel format (e.g., 0612345678)");
     }
-    if (preg_match("/^(?:[0-9]|1[0-9]|20)$/",$grade))
+    if (preg_match("/^(?:[0-9]|1[0-9]|20)$/", $grade) == 0) 
     {
-        exit("Invalid grade format (0-20)");
+        exit("Invalid grade format (0-20 integers only)");
+    }
+
+    $grade_int = (int)$grade;
+    $honor = '';
+    if ($grade_int >= 16) 
+    {
+        $honor = 'Très Bien';
+    } elseif ($grade_int >= 14) 
+    {
+        $honor = 'Bien';
+    } elseif ($grade_int >= 12) 
+    {
+        $honor = 'Assez Bien';
+    } elseif ($grade_int >= 10) 
+    {
+        $honor = 'Pass';
+    } else 
+    {
+        $honor = 'None';
     }
     
     try 
@@ -99,19 +118,6 @@ if (isset($_POST['submit']) && $_SERVER["REQUEST_METHOD"] == "POST")
         <label for="grade">Grade :</label>
         <input type="number" name="grade" id="grade" value="<?= htmlspecialchars($user['grade']) ?>" required>
 
-        <p>Honor:</p>
-        <label>
-            <input type="radio" name="honor" value="pass" <?= (isset($user['honor']) && $user['honor'] === 'pass') ? 'checked' : '' ?>> Pass
-        </label><br>
-        <label>
-            <input type="radio" name="honor" value="honors" <?= (isset($user['honor']) && $user['honor'] === 'honors') ? 'checked' : '' ?>> Assez Bien
-        </label><br>
-        <label>
-            <input type="radio" name="honor" value="high_honors" <?= (isset($user['honor']) && $user['honor'] === 'high_honors') ? 'checked' : '' ?>> Bien
-        </label><br>
-        <label>
-            <input type="radio" name="honor" value="highest_honors" <?= (isset($user['honor']) && $user['honor'] === 'highest_honors') ? 'checked' : '' ?>> Très Bien
-        </label>
         <br><br>
         <button class="update-user" type="submit" name="submit">Update User</button>
     </form>

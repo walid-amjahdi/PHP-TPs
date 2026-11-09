@@ -94,10 +94,21 @@ input, select { background: #111827; color: #f3f4f6; border: 1px solid #4b5563; 
     color: #eff6ff;
     border-radius: 10%;
     text-decoration: none;
-
+}
+.show
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 75px;
+    background-color: rgb(0, 130, 210);
+    color: #eff6ff;
+    border-radius: 10%;
+    text-decoration: none;
 }
 
-.modify:hover, .delete:hover, .add-user-link:hover
+.modify:hover, .delete:hover, .add-user-link:hover, .show
 {
     opacity: 0.8; 
 }

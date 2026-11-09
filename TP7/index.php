@@ -65,6 +65,7 @@ try {
                     <td class="action">
                         <a href="modify.php?id=<?= (int) $user['id'] ?>" class="modify">Modify</a>
                         <a href="delete.php?id=<?= (int) $user['id'] ?>" class="delete">Delete</a>
+                        <a href="show.php?id=<?= (int) $user['id'] ?>" class="show">Show</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>
