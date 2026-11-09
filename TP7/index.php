@@ -41,31 +41,23 @@ try {
     <table>
         <thead>
             <tr>
-                <th>ID</th>
                 <th>CIN</th>
                 <th>Full Name</th>
-                <th>Tel</th>
-                <th>Email</th>
-                <th>Birthdate</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         <?php if (empty($users)): ?>
-            <tr><td colspan="7" style="text-align: center;">No users found yet.</td></tr>
+            <tr><td colspan="3" style="text-align: center;">No users found yet.</td></tr>
         <?php else: ?>
                 <?php foreach ($users as $user): ?>
                 <tr>
-                    <td><?= htmlspecialchars((string) $user['id'], ENT_QUOTES, 'UTF-8') ?></td>
                     <td><?= htmlspecialchars($user['cin'], ENT_QUOTES, 'UTF-8') ?></td>
                     <td><?= htmlspecialchars($user['full_name'], ENT_QUOTES, 'UTF-8') ?></td>
-                    <td><?= htmlspecialchars($user['tel'], ENT_QUOTES, 'UTF-8') ?></td>
-                    <td><?= htmlspecialchars($user['email'], ENT_QUOTES, 'UTF-8') ?></td>
-                    <td><?= htmlspecialchars($user['birth'], ENT_QUOTES, 'UTF-8') ?></td>
                     <td class="action">
+                        <a href="show.php?id=<?= (int) $user['id'] ?>" class="show">Show</a>
                         <a href="modify.php?id=<?= (int) $user['id'] ?>" class="modify">Modify</a>
                         <a href="delete.php?id=<?= (int) $user['id'] ?>" class="delete">Delete</a>
-                        <a href="show.php?id=<?= (int) $user['id'] ?>" class="show">Show</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>

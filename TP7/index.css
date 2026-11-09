@@ -102,7 +102,7 @@ input, select { background: #111827; color: #f3f4f6; border: 1px solid #4b5563; 
     align-items: center;
     height: 50px;
     width: 75px;
-    background-color: rgb(0, 130, 210);
+    background-color: #125dff;
     color: #eff6ff;
     border-radius: 10%;
     text-decoration: none;
@@ -136,4 +136,16 @@ input, select { background: #111827; color: #f3f4f6; border: 1px solid #4b5563; 
     background-color: rgb(38, 187, 127);
     color: #eff6ff;
     border-radius: 10%;
+}
+.back-link
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 150px;
+    background-color: #125dff;
+    color: #eff6ff;
+    border-radius: 10%;
+    text-decoration: none;
 }
