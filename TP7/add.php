@@ -36,6 +36,25 @@ try {
 
         <label for="birth">Birthdate :</label>
         <input type="date" name="birth" id="birth" required>
+
+        <label for="grade">Grade :</label>
+        <input type="number" name="grade" id="grade" required>
+
+        <p>Honor:</p>
+        <label>
+            <input type="radio" name="honor" value="pass"> Pass
+        </label><br>
+        <label>
+            <input type="radio" name="honor" value="honors"> Assez Bien
+        </label><br>
+        <label>
+            <input type="radio" name="honor" value="high_honors"> Bien
+        </label><br>
+        <label>
+            <input type="radio" name="honor" value="highest_honors"> Très Bien
+        </label>
+
+
         <br><br>
         <button class="add-user" type="submit" name="submit">Save User</button>
     </form>
@@ -58,6 +77,8 @@ if (isset($_POST['submit']) && $_SERVER["REQUEST_METHOD"] == "POST")
     $tel      = $formData["tel"] ?? '';
     $email    = $formData["email"] ?? '';
     $birth    = $formData["birth"] ?? '';
+    $grade    = $formData["grade"] ?? '';
+    $honor    = $formData["honor"] ?? '';
     
     if (preg_match("/^[A-Z]{2}[0-9]{6}$/", $cin) == 0) 
     {
@@ -71,10 +92,14 @@ if (isset($_POST['submit']) && $_SERVER["REQUEST_METHOD"] == "POST")
     {
         exit("Invalid Tel format (e.g., 0612345678)");
     }
+    if (preg_match("/^(?:[0-9]|1[0-9]|20)$/",$grade))
+    {
+        exit("Invalid grade format (0-20)");
+    }
     
     try {
-        $stmt = $pdo->prepare("INSERT INTO users (cin, full_name, tel, email, birth) VALUES (?, ?, ?, ?, ?)");
-        $stmt->execute([$cin, $full_name, $tel, $email, $birth]);
+        $stmt = $pdo->prepare("INSERT INTO users (cin, full_name, tel, email, birth, grade, honor) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt->execute([$cin, $full_name, $tel, $email, $birth, $grade, $honor]);
     
         header("Location: index.php?success=1");
         exit();

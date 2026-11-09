@@ -35,6 +35,8 @@ if (isset($_POST['submit']) && $_SERVER["REQUEST_METHOD"] == "POST")
     $tel       = $formData["tel"] ?? '';
     $email     = $formData["email"] ?? '';
     $birth     = $formData["birth"] ?? '';
+    $grade    = $formData["grade"] ?? '';
+    $honor    = $formData["honor"] ?? '';
     
     if (preg_match("/^[A-Z]{2}[0-9]{6}$/", $cin) == 0) 
     {
@@ -48,11 +50,15 @@ if (isset($_POST['submit']) && $_SERVER["REQUEST_METHOD"] == "POST")
     {
         exit("Invalid Tel format (e.g., 0612345678)");
     }
+    if (preg_match("/^(?:[0-9]|1[0-9]|20)$/",$grade))
+    {
+        exit("Invalid grade format (0-20)");
+    }
     
     try 
     {
-        $stmt = $pdo->prepare("UPDATE users SET cin = ?, full_name = ?, tel = ?, email = ?, birth = ? WHERE id = ?");
-        $stmt->execute([$cin, $full_name, $tel, $email, $birth, $id]);
+        $stmt = $pdo->prepare("UPDATE users SET cin = ?, full_name = ?, tel = ?, email = ?, birth = ?, grade = ?, honor = ? WHERE id = ?");
+        $stmt->execute([$cin, $full_name, $tel, $email, $birth, $grade, $honor, $id]);
     
         header("Location: index.php?updated=1");
         exit();
