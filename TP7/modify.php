@@ -95,6 +95,23 @@ if (isset($_POST['submit']) && $_SERVER["REQUEST_METHOD"] == "POST")
 
         <label for="birth">Birthdate :</label>
         <input type="date" name="birth" id="birth" value="<?= htmlspecialchars($user['birth']) ?>" required>
+        
+        <label for="grade">Grade :</label>
+        <input type="number" name="grade" id="grade" value="<?= htmlspecialchars($user['grade']) ?>" required>
+
+        <p>Honor:</p>
+        <label>
+            <input type="radio" name="honor" value="pass" <?= (isset($user['honor']) && $user['honor'] === 'pass') ? 'checked' : '' ?>> Pass
+        </label><br>
+        <label>
+            <input type="radio" name="honor" value="honors" <?= (isset($user['honor']) && $user['honor'] === 'honors') ? 'checked' : '' ?>> Assez Bien
+        </label><br>
+        <label>
+            <input type="radio" name="honor" value="high_honors" <?= (isset($user['honor']) && $user['honor'] === 'high_honors') ? 'checked' : '' ?>> Bien
+        </label><br>
+        <label>
+            <input type="radio" name="honor" value="highest_honors" <?= (isset($user['honor']) && $user['honor'] === 'highest_honors') ? 'checked' : '' ?>> Très Bien
+        </label>
         <br><br>
         <button class="update-user" type="submit" name="submit">Update User</button>
     </form>
